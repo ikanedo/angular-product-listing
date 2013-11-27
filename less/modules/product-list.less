@@ -1,0 +1,44 @@
+.product-sorter {
+	margin-top: 25px;
+}
+
+.product-list {}
+
+.product-item {
+	.clearfix;
+
+	padding: 18px 0;
+
+	margin-bottom: 18px;
+	border-bottom: 2px dotted #88DD34;
+}
+
+.product-thumbnail {
+	margin-right: 20px;
+}
+
+.product-summary {
+	> .h4 {
+		margin-top: 5px;
+	}
+
+	dl {
+		@dl-margin : 5px;
+		margin: @dl-margin 0;
+
+		.clearfix;
+
+		> dt {
+			clear: left;
+			float: left;
+			margin-right: 5px;
+			margin-bottom : @dl-margin;
+		}
+
+		> dd {
+			float: left;
+			margin-bottom : @dl-margin;
+		}
+
+	}
+}

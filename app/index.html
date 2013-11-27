@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <title>Product Listing</title>
+
+    <link href="assets/css/productList.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/vendors/html5shiv.js"></script>
+      <script src="assets/js/vendors/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body ng-app="productList">
+    <div class="container" ng-controller="ProductListCtrl">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1 class="h3">Your Packs</h1>
+        </div>
+        <div class="col-xs-6 form-horizontal">
+          <div class="product-sorter pull-right form-group">
+            <label>
+              sort by 
+            </label>
+            <select ng-model="sortBy" ng-options="option as option.label for option in sortOptions">
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <ul class="list-unstyled product-list">
+        <li itemscope itemtype="http://schema.org/Product" class="product-item" ng-repeat="product in products | orderBy:sortBy.value:sortBy.reverse">
+          <div class="pull-left product-thumbnail">
+            <img itemprop="image" class="{{product.extras}}" src="{{product.thumbnail}}" alt="{{product.name}}">
+          </div>
+          <div class="pull-left product-summary">
+            <h2 class="h4" itemprop="name">{{product.name}}</h2>
+            <dl>
+              <dt>Paper stock:</dt><dd>{{product.paperStock}}</dd>
+              <dt>Card quantity:</dt><dd itemprop="depth">{{product.quantity}}</dd>
+            </dl>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+    <script src="assets/js/productList.js"></script>
+
+<!--
+    <script src="../js/productList/app.js"></script>
+    <script src="../js/productList/services/productsService.js"></script>
+    <script src="../js/productList/controllers/productListCtrl.js"></script>
+
+-->
+  </body>
+</html>
